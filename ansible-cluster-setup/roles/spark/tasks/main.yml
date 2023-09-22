@@ -1,0 +1,21 @@
+---
+- name: Download Spark
+  get_url:
+    url: "https://downloads.apache.org/spark/spark-3.2.4/spark-3.2.4-bin-hadoop3.2.tgz"
+    dest: /tmp/spark.tgz
+- name: Extract Spark
+  unarchive:
+    src: /tmp/spark.tgz
+    dest: /opt/
+- name: Configure Spark
+  lineinfile:
+    path: /opt/spark-3.2.4-bin-hadoop3.2/conf/spark-defaults.conf
+    line: "{{ item }}"
+  loop:
+    - "spark.driver.memory 2g"
+- name: Start Spark Master
+  shell: "/opt/spark-3.2.4-bin-hadoop3.2/sbin/start-master.sh"
+  become: yes
+- name: Start Spark Worker
+  shell: "/opt/spark-3.2.4-bin-hadoop3.2/sbin/start-worker.sh spark://{{ ansible_play_hosts[0] }}:7077"
+  become: yes

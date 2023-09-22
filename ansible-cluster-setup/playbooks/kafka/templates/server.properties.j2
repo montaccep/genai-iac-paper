@@ -1,0 +1,4 @@
+broker.id={{ inventory_hostname.split('-')[-1] }}
+listeners=PLAINTEXT://:9092
+log.dirs=/var/lib/kafka/data
+zookeeper.connect=zk1:2181,zk2:2181,zk3:2181

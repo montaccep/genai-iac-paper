@@ -1,0 +1,16 @@
+[redis]
+redis-node1 ansible_host=redis-node1-ip
+redis-node2 ansible_host=redis-node2-ip
+redis-node3 ansible_host=redis-node3-ip
+
+[kafka]
+kafka-node1 ansible_host=kafka-node1-ip
+kafka-node2 ansible_host=kafka-node2-ip
+kafka-node3 ansible_host=kafka-node3-ip
+
+[spark]
+spark-node1 ansible_host=spark-node1-ip
+spark-node2 ansible_host=spark-node2-ip
+spark-node3 ansible_host=spark-node3-ip
+spark-node4 ansible_host=spark-node4-ip
+spark-node5 ansible_host=spark-node5-ip
